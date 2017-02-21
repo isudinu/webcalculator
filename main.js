@@ -11,23 +11,27 @@ var outputArea = document.querySelector ('#answer');
 var firstNumber = 0;
 var operator = '+';
 
-
+var allNumbersText = [];
 
 
 //pay attention to clicks on the numberButtons
-for (var i = 0; i < 11; i++) {
+for (var i = 0; i < numberButtons.length; i++) {
+
+  allNumbersText.push(numberButtons[i].innerText)
+
   numberButtons[i].addEventListener('click', function(e) {
-    var number = e.target.innerText;
 
-// put the number in the output area
-  var oldNumber = outputArea.innerText;
-  var newNumber = oldNumber + number ;
-
-    outputArea.innerText = newNumber;
+    allNumbersText.splice(allNumbersText.indexOf(e.target.innerText), 1);
+    console.log(allNumbersText)
+    //console.log('Clicked button text',e.target.innerText);
+    //console.log('Array possitsion of ' + e.target.innerText, allNumbersText.indexOf(e.target.innerText));
   });
+
 }
 
-// pay attention to click on the operatorButtons
+console.log(allNumbersText);
+
+/*// pay attention to click on the operatorButtons
 for (var i = 0; i < operatorButtons.length; i++) {
   operatorButtons[i].addEventListener('click', function(e) {
 
@@ -50,4 +54,4 @@ equalsButton.addEventListener ('click', function(e) {
     outputArea.innerText = Number(firstNumber) + Number(outputArea.innerText);
   }
 // put the answer in the outputArea
-});
+});*/
